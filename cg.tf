@@ -45,7 +45,7 @@ data "aws_ami" "ohio-amazonami" {
 resource "aws_instance" "ohio-vm" {
   provider = aws.ohio
   ami           = data.aws_ami.ohio-amazonami.id
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   subnet_id     = data.aws_subnets.ohio-subnet-ids.ids[0]
   security_groups = [data.aws_security_group.default.id]
   associate_public_ip_address = true
