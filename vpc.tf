@@ -76,7 +76,7 @@ resource "aws_vpn_gateway" "vpn_gw" {
 }
 resource "aws_customer_gateway" "main" {
   bgp_asn    = 65000
-  ip_address = aws_instance.ohio-vm.public_ip
+  ip_address = aws_eip.cg-ip.public_ip
   type       = "ipsec.1"
   tags = {
     Name = "main-customer-gateway"
